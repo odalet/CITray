@@ -1,0 +1,7 @@
+
+SRC/CITray/CITray/bin/*
+*.suo
+SRC/CITray/CITray.suo
+SRC/CITray/CITray/obj/*
+SRC/CITray/CITrayApi/bin/*
+SRC/CITray/CITrayApi/obj/*
