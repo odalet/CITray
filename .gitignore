@@ -5,3 +5,7 @@ SRC/CITray/CITray.suo
 SRC/CITray/CITray/obj/*
 SRC/CITray/CITrayApi/bin/*
 SRC/CITray/CITrayApi/obj/*
+SRC/CITray/CITray.Api/bin/Debug/*
+SRC/CITray/CITray.Api/obj/*
+SRC/CITray/CITray.Hudson/obj/*
+SRC/CITray/CITray.Hudson/bin/*

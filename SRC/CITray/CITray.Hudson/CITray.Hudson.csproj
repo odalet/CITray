@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{387FF5F7-118C-4944-A986-C1CC47D6C7FB}</ProjectGuid>
+    <ProjectGuid>{FD47FB55-5725-4E95-AD7A-A02AF32D573F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CITrayApi</RootNamespace>
-    <AssemblyName>CITrayApi</AssemblyName>
+    <RootNamespace>CITray.Hudson</RootNamespace>
+    <AssemblyName>CITray.Hudson</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="HudsonPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CITray.Api\CITray.Api.csproj">
+      <Project>{387FF5F7-118C-4944-A986-C1CC47D6C7FB}</Project>
+      <Name>CITray.Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

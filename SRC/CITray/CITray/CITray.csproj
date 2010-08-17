@@ -97,9 +97,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CITrayApi\CITrayApi.csproj">
+    <ProjectReference Include="..\CITray.Api\CITray.Api.csproj">
       <Project>{387FF5F7-118C-4944-A986-C1CC47D6C7FB}</Project>
-      <Name>CITrayApi</Name>
+      <Name>CITray.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
