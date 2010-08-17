@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 
 [assembly: AssemblyTitle(ThisAssembly.Title)]
 [assembly: AssemblyDescription(ThisAssembly.Description)]
@@ -6,6 +7,10 @@
 [assembly: AssemblyFileVersion(ThisAssembly.FileVersion)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCulture("")]
+
+[assembly: InternalsVisibleTo("CITray")]
+[assembly: InternalsVisibleTo("CITray.Api")]
+[assembly: InternalsVisibleTo("CITray.Common")]
 
 internal static partial class ThisAssembly
 {

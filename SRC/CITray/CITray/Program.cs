@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 
+using CITray.Core;
+
 namespace CITray
 {
     internal static class Program
@@ -13,6 +15,9 @@ namespace CITray
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            This.Bootstrap();
+
             Application.Run(new MainForm());
         }
     }

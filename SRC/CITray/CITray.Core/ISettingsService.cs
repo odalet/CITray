@@ -5,8 +5,7 @@ using System.Text;
 
 namespace CITray.Core
 {
-    internal class SettingsService : ISettingsService
+    internal interface ISettingsService
     {
-
     }
 }
