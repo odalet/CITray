@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.Hudson", "CITray.Hud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.Api", "CITray.Api\CITray.Api.csproj", "{387FF5F7-118C-4944-A986-C1CC47D6C7FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.Common", "CITray.Common\CITray.Common.csproj", "{437C69D1-B56B-459F-A6B2-FA238F0B4E6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.Core", "CITray.Core\CITray.Core.csproj", "{2653815E-AA35-4CEE-8067-5393A5B93EA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{387FF5F7-118C-4944-A986-C1CC47D6C7FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{387FF5F7-118C-4944-A986-C1CC47D6C7FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{387FF5F7-118C-4944-A986-C1CC47D6C7FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{437C69D1-B56B-459F-A6B2-FA238F0B4E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{437C69D1-B56B-459F-A6B2-FA238F0B4E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{437C69D1-B56B-459F-A6B2-FA238F0B4E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{437C69D1-B56B-459F-A6B2-FA238F0B4E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2653815E-AA35-4CEE-8067-5393A5B93EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2653815E-AA35-4CEE-8067-5393A5B93EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2653815E-AA35-4CEE-8067-5393A5B93EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2653815E-AA35-4CEE-8067-5393A5B93EA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,36 +1,33 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("CITrayApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle(ThisAssembly.Title)]
+[assembly: AssemblyDescription(ThisAssembly.Description)]
+[assembly: AssemblyInformationalVersion(ThisAssembly.InformationalVersion)]
+[assembly: AssemblyFileVersion(ThisAssembly.FileVersion)]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("CITrayApi")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2010")]
-[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+internal static partial class ThisAssembly
+{
+    public const string InformationalVersion = thisVersion;
+    public const string FileVersion = thisVersion;
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b8cbb776-727b-4999-800b-b537382314c8")]
+    public const string Title = "CITray.Api";
+    public const string Description = "Public CITray API for plugins developers";
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+    /// <summary>
+    /// Gets the build number for this assembly (or zero if it is not set).
+    /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "System.Int32.TryParse(System.String,System.Int32@)")]
+    public static int BuildNumber
+    {
+        get
+        {
+            int buildNumber = 0;
+            int.TryParse(buildNumberAsString, out buildNumber);
+            return buildNumber;
+        }
+    }
+
+    private const string thisVersion = ProductVersion + "." + buildNumberAsString;
+}

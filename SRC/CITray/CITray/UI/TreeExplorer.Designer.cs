@@ -1,4 +1,4 @@
-﻿namespace CITray
+﻿namespace CITray.UI
 {
     partial class TreeExplorer
     {

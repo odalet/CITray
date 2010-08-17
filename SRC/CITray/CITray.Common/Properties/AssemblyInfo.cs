@@ -12,8 +12,8 @@ internal static partial class ThisAssembly
     public const string InformationalVersion = thisVersion;
     public const string FileVersion = thisVersion;
 
-    public const string Title = "CITray";
-    public const string Description = "Main CITray assembly: the application";
+    public const string Title = "CITray.Common";
+    public const string Description = "Various helper classes usable by plugins developers";
 
     /// <summary>
     /// Gets the build number for this assembly (or zero if it is not set).

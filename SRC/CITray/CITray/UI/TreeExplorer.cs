@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CITray
+namespace CITray.UI
 {
-    public partial class MainView : UserControl
+    internal partial class TreeExplorer : UserControl
     {
-        public MainView()
+        public TreeExplorer()
         {
             InitializeComponent();
         }

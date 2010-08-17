@@ -9,3 +9,7 @@ SRC/CITray/CITray.Api/bin/Debug/*
 SRC/CITray/CITray.Api/obj/*
 SRC/CITray/CITray.Hudson/obj/*
 SRC/CITray/CITray.Hudson/bin/*
+SRC/CITray/CITray.Common/bin/*
+SRC/CITray/CITray.Common/obj/*
+SRC/CITray/CITray.Core/bin/*
+SRC/CITray/CITray.Core/obj/**
