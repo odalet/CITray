@@ -31,7 +31,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.bottomLineControl = new CITray.Common.UI.LineControl();
+            this.bottomLineControl = new CITray.UI.LineControl();
             this.placeHolderPanel = new System.Windows.Forms.Panel();
             this.optionsTreeControl = new CITray.UI.OptionsTreeControl();
             this.splitContainer.Panel1.SuspendLayout();
@@ -134,7 +134,7 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.SplitContainer splitContainer;
         private OptionsTreeControl optionsTreeControl;
-        private CITray.Common.UI.LineControl bottomLineControl;
+        private CITray.UI.LineControl bottomLineControl;
         private System.Windows.Forms.Panel placeHolderPanel;
     }
 }

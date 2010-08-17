@@ -10,7 +10,6 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("CITray")]
 [assembly: InternalsVisibleTo("CITray.Api")]
-[assembly: InternalsVisibleTo("CITray.Common")]
 
 internal static partial class ThisAssembly
 {

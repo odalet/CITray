@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Security.Permissions;
 using System.Runtime.Serialization;
 
-namespace CITray.Core
+namespace CITray
 {
     /// <summary>
     /// This exception is thrown by the <see cref="Sopra.Extensions.ServiceExtensions.GetService&lt;T&gt;(System.IServiceProvider)"/>

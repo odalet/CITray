@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 
-namespace CITray.Core
+namespace CITray
 {
     /// <summary>
     /// This "This" class represents a central point containing services and

@@ -122,10 +122,6 @@
       <Project>{387FF5F7-118C-4944-A986-C1CC47D6C7FB}</Project>
       <Name>CITray.Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CITray.Common\CITray.Common.csproj">
-      <Project>{437C69D1-B56B-459F-A6B2-FA238F0B4E6F}</Project>
-      <Name>CITray.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CITray.Core\CITray.Core.csproj">
       <Project>{2653815E-AA35-4CEE-8067-5393A5B93EA9}</Project>
       <Name>CITray.Core</Name>

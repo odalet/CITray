@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-using CITray.Core;
-
 namespace CITray
 {
     internal static class Program
