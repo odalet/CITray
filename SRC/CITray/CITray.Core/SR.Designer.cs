@@ -61,6 +61,15 @@ namespace CITray {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already initialized: this method ({0}.Bootstrap) should be called once and only once..
+        /// </summary>
+        internal static string AlreadyInitializedError {
+            get {
+                return ResourceManager.GetString("AlreadyInitializedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Service of type {0} couldn&apos;t be found.
         /// </summary>
         internal static string ServiceNotFoundDefaultMessage {
@@ -75,6 +84,15 @@ namespace CITray {
         internal static string ServiceNotFoundDefaultMessage2 {
             get {
                 return ResourceManager.GetString("ServiceNotFoundDefaultMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured during the settings initialization step: {0}.
+        /// </summary>
+        internal static string SettingsInitializationError {
+            get {
+                return ResourceManager.GetString("SettingsInitializationError", resourceCulture);
             }
         }
     }

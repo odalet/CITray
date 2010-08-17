@@ -11,7 +11,7 @@ using System.Globalization;
 static partial class ThisAssembly
 {
     public const string ProductVersion = "0.1.0";
-    public const string Product = "Sopra Group Framework";
+    public const string Product = "CITray";
     public const string Trademark = "";
     public const string Company = "Delta Software";
 	

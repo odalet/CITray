@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlreadyInitializedError" xml:space="preserve">
+    <value>Already initialized: this method ({0}.Bootstrap) should be called once and only once.</value>
+  </data>
   <data name="ServiceNotFoundDefaultMessage" xml:space="preserve">
     <value>Service of type {0} couldn't be found</value>
   </data>
   <data name="ServiceNotFoundDefaultMessage2" xml:space="preserve">
     <value>Service of type {0} couldn't be found: {1}</value>
+  </data>
+  <data name="SettingsInitializationError" xml:space="preserve">
+    <value>An error occured during the settings initialization step: {0}</value>
   </data>
 </root>

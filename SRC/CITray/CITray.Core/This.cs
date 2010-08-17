@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.IO;
 
 namespace CITray
 {
@@ -21,14 +22,33 @@ namespace CITray
         public static void Bootstrap()
         {
             if (initialized) throw new ApplicationException(string.Format(
-                "Already initialized: this method ({0}.Bootstrap) should be called once and only once.", 
-                typeof(This)));
+                SR.AlreadyInitializedError, typeof(This)));
             
             lock(locker)
             {
                 instance.Initialize();
                 initialized = true;
             }            
+        }
+
+        public static string ApplicationName
+        {
+            get { return ThisAssembly.Product; }
+        }
+
+        public static string ApplicationVersion
+        {
+            get { return ThisAssembly.ProductVersion; }
+        }
+
+        public static string SettingsFileName
+        {
+            get
+            {
+                var userDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                return Path.Combine(Path.Combine(Path.Combine(
+                    userDataPath, ApplicationName), ApplicationVersion), "settings.xml");
+            }
         }
 
         /// <summary>
@@ -40,6 +60,11 @@ namespace CITray
             get { return instance.serviceContainer; }
         }
 
+        public static ISettings Settings
+        {
+            get { return Services.GetService<ISettings>(true); }
+        }
+
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -48,7 +73,51 @@ namespace CITray
             serviceContainer = new ServiceContainer();
 
             // add global services
-
+            AddSettingsService();            
         }
+
+        /// <summary>
+        /// Adds the global settings service and read settings information.
+        /// </summary>
+        private void AddSettingsService()
+        {
+            try
+            {
+                // Get user settings file.
+                var settingsFileName = SettingsFileName;
+                var settingsService = new SettingsService(settingsFileName, null);
+                settingsService.Load();
+
+                serviceContainer.AddService<ISettingsService>(settingsService);
+                serviceContainer.AddService<ISettings>(settingsService);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(string.Format(
+                    SR.SettingsInitializationError, ex.Message), ex);
+            }
+        }
+
+#if DEBUG
+        public static void TestSaveSettings()
+        {
+            var settings = new SettingsService(@"c:\temp\settings.xml", null);
+            settings.Global.EnabledPlugins = new string[]
+            {
+                "a.dll", "b.dll", "c.dll"
+            };
+
+            settings.Global.PluginsFolder = @".\plugins";
+
+            settings.Save();
+        }
+
+        public static void TestLoadSettings()
+        {
+            var settings = new SettingsService(@"c:\temp\settings.xml", null);
+            settings.Load();
+            var g = settings.Global;
+        }
+#endif
     }
 }
