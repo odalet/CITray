@@ -13,3 +13,4 @@ SRC/CITray/CITray.Common/bin/*
 SRC/CITray/CITray.Common/obj/*
 SRC/CITray/CITray.Core/bin/*
 SRC/CITray/CITray.Core/obj/**
+LIB/log4net.xml
