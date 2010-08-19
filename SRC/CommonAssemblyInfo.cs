@@ -16,9 +16,9 @@ static partial class ThisAssembly
     public const string Company = "Delta Software";
 	
 #if CCNET
-    public const string Copyright = "Copyright © Sopra Group ${BuildYear}";
+    public const string Copyright = "Delta Software ${BuildYear} (MsPL)";
 #else
-    public const string Copyright = "Delta Software 2008 (MsPL)";
+    public const string Copyright = "Delta Software 2010 (MsPL)";
 #endif
 
     public const string Version = thisVersion;
