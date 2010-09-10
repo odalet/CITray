@@ -17,6 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.Core", "CITray.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.MockPlugin", "CITray.MockPlugin\CITray.MockPlugin.csproj", "{0DC82BBB-FB2B-4D3C-8012-377F8F924972}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{95664B32-7B42-4786-887B-B8D967A5051B}"
+	ProjectSection(SolutionItems) = preProject
+		..\Credits.txt = ..\Credits.txt
+		..\History.txt = ..\History.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

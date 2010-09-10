@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace CITray
 {
     /// <summary>
-    /// This exception is thrown by the <see cref="Sopra.Extensions.ServiceExtensions.GetService&lt;T&gt;(System.IServiceProvider)"/>
+    /// This exception is thrown by the <see cref="CITray.ServiceExtensions.GetService&lt;T&gt;(System.IServiceProvider)"/>
     /// method, when specifying the <b>mandatory</b> parameter and when the requested service is not found.
     /// </summary>
     [Serializable]

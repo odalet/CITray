@@ -35,6 +35,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
@@ -51,6 +52,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Assert.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="FileHelper.cs" />
     <Compile Include="ISettings.cs" />
     <Compile Include="ISettingsService.cs" />
@@ -78,6 +80,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TypeExtensions.cs" />
+    <Compile Include="UI\UIAction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\UIActionCollection.cs" />
+    <Compile Include="UI\UIActionCollectionEditor.cs" />
+    <Compile Include="UI\UIActionsManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\UIActionTargetDescriptor.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -97,6 +108,10 @@
       <Project>{387FF5F7-118C-4944-A986-C1CC47D6C7FB}</Project>
       <Name>CITray.Api</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\UIAction.bmp" />
+    <EmbeddedResource Include="UI\UIActionsManager.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

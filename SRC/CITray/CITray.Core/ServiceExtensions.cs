@@ -28,7 +28,7 @@ namespace CITray
         /// <typeparam name="T">Type de service à récupérer.</typeparam>
         /// <param name="serviceProvider">The service provider.</param>
         /// <param name="mandatory">Si à <c>true</c>, lève une
-        /// exception <see cref="Sopra.ComponentModel.ServiceNotFoundException&lt;T&gt;"/>
+        /// exception <see cref="CITray.ServiceNotFoundException&lt;T&gt;"/>
         /// dans le cas où le service demandé n'a pas pu être trouvé.</param>
         /// <returns>L'instance de service ou <b>null</b></returns>
         public static T GetService<T>(this IServiceProvider serviceProvider, bool mandatory) where T : class

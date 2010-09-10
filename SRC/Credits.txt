@@ -1,0 +1,3 @@
+Version 0.1.0
+* Olivier Dalet (http://odalet.wordpress.com/)
+* Marco De Sanctis' Actions:  http://blogs.ugidotnet.org/crad/articles/38329.aspx
