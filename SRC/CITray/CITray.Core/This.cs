@@ -1,6 +1,9 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.IO;
+using CITray.Plugins;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace CITray
 {
@@ -13,6 +16,7 @@ namespace CITray
         private static readonly object locker = new object();
         private static readonly This instance = new This();
         private static bool initialized = false;
+        private static string rootdir = string.Empty;
 
         private ServiceContainer serviceContainer = null;
 
@@ -65,6 +69,33 @@ namespace CITray
             get { return Services.GetService<ISettings>(true); }
         }
 
+        public static PluginManager PluginManager
+        {
+            get; private set;
+        }
+
+        #region Helper properties
+
+        /// <summary>
+        /// Gets the root directory for this application.
+        /// </summary>
+        /// <value>The root directory.</value>
+        public static string RootApplicationDirectory
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(rootdir))
+                {
+                    var location = Assembly.GetEntryAssembly().Location;
+                    rootdir = Path.GetDirectoryName(location);
+                }
+
+                return rootdir;
+            }
+        }
+
+        #endregion
+
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -73,7 +104,15 @@ namespace CITray
             serviceContainer = new ServiceContainer();
 
             // add global services
-            AddSettingsService();            
+            AddSettingsService();
+
+            LoadPlugins();
+        }
+
+        private void LoadPlugins()
+        {
+            PluginManager = new PluginManager(Services);
+            PluginManager.Discover();
         }
 
         /// <summary>
@@ -97,27 +136,27 @@ namespace CITray
                     SR.SettingsInitializationError, ex.Message), ex);
             }
         }
+        
+//#if DEBUG
+//        public static void TestSaveSettings()
+//        {
+//            var settings = new SettingsService(@"c:\temp\settings.xml", null);
+//            settings.Global.EnabledPlugins = new string[]
+//            {
+//                "a.dll", "b.dll", "c.dll"
+//            };
 
-#if DEBUG
-        public static void TestSaveSettings()
-        {
-            var settings = new SettingsService(@"c:\temp\settings.xml", null);
-            settings.Global.EnabledPlugins = new string[]
-            {
-                "a.dll", "b.dll", "c.dll"
-            };
+//            settings.Global.PluginsFolder = @".\plugins";
 
-            settings.Global.PluginsFolder = @".\plugins";
+//            settings.Save();
+//        }
 
-            settings.Save();
-        }
-
-        public static void TestLoadSettings()
-        {
-            var settings = new SettingsService(@"c:\temp\settings.xml", null);
-            settings.Load();
-            var g = settings.Global;
-        }
-#endif
+//        public static void TestLoadSettings()
+//        {
+//            var settings = new SettingsService(@"c:\temp\settings.xml", null);
+//            settings.Load();
+//            var g = settings.Global;
+//        }
+//#endif
     }
 }

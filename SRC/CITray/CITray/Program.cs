@@ -14,18 +14,18 @@ namespace CITray
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-#if DEBUG
-            try
-            {
-                This.TestLoadSettings();
-                This.TestSaveSettings();
-                This.TestLoadSettings();
-            }
-            catch (Exception ex)
-            {
-                var debugEx = ex;
-            }
-#endif
+//#if DEBUG
+//            try
+//            {
+//                This.TestLoadSettings();
+//                This.TestSaveSettings();
+//                This.TestLoadSettings();
+//            }
+//            catch (Exception ex)
+//            {
+//                var debugEx = ex;
+//            }
+//#endif
 
             This.Bootstrap();
 

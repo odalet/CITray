@@ -136,4 +136,21 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>if not exist $(TargetDir)plugins md $(TargetDir)plugins
+echo mkdir plugins: %25errorlevel%25
+
+set plugin_name=CITray.Hudson
+
+copy /y $(ProjectDir)..\%25plugin_name%25\$(OutDir)%25plugin_name%25.dll $(TargetDir)plugins
+copy /y $(ProjectDir)..\%25plugin_name%25\$(OutDir)%25plugin_name%25.pdb $(TargetDir)plugins
+echo copy plugin '%25plugin_name%25': %25errorlevel%25
+
+
+set plugin_name=CITray.MockPlugin
+
+copy /y $(ProjectDir)..\%25plugin_name%25\$(OutDir)%25plugin_name%25.dll $(TargetDir)plugins
+copy /y $(ProjectDir)..\%25plugin_name%25\$(OutDir)%25plugin_name%25.pdb $(TargetDir)plugins
+echo copy plugin '%25plugin_name%25': %25errorlevel%25</PostBuildEvent>
+  </PropertyGroup>
 </Project>

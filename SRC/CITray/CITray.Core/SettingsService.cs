@@ -81,8 +81,15 @@ namespace CITray
             EnsureFileName();
             if (!File.Exists(fileName))
             {
+                // Create the default settings file (from the one 
+                // embedded in the assembly's resource) 
                 Clear();
-                return;
+                var xdoc = XDocument.Parse(
+                    Properties.Resources.defaultSettings, 
+                    LoadOptions.PreserveWhitespace);
+                FileHelper.CreateDirectoryIfNeeded(
+                    Path.GetDirectoryName(fileName));
+                xdoc.Save(fileName);
             }
 
             try
