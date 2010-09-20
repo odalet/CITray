@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
+
 using CITray.UI;
+using CITray.Controllers;
 
 namespace CITray
 {
+    /// <summary>
+    /// The application's main window.
+    /// </summary>
     internal partial class MainForm : Form
     {
         /// <summary>
@@ -12,32 +17,32 @@ namespace CITray
         public MainForm()
         {
             InitializeComponent();
+            Text = ThisAssembly.MainWindowTitle;
         }
-
+        
         /// <summary>
-        /// Shows the options dialog.
+        /// Initializes this instance of <see cref="TrayIcon"/> with the specified service provider.
         /// </summary>
-        private void ShowOptions()
+        /// <param name="serviceProvider">The service provider.</param>
+        public void Initialize(IServiceProvider serviceProvider)
         {
-            new OptionsDialog().ShowDialog(this);
-        }
+            var services = serviceProvider ?? This.Services;
 
-        /// <summary>
-        /// Exits the application.
-        /// </summary>
-        private void Exit()
-        {
-            Close();
-        }
+            // Get a reference to the application controller
+            var controller = services.GetService<IApplicationController>(true);
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowOptions();
-        }
-
-        private void exitAction_Run(object sender, EventArgs e)
-        {
-            Exit();
-        }
+            // Wire events
+            exitAction.Run += (s, e) => controller.ExitApplication();
+            optionsAction.Run += (s, e) => controller.ShowOptions();
+            aboutAction.Run += (s, e) => controller.AboutApplication();
+            FormClosing += (s, e) =>
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    controller.HideMainWindow();
+                    e.Cancel = true; // don't close
+                }
+            };
+        }       
     }
 }

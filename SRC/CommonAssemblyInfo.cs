@@ -2,6 +2,17 @@ using System;
 using System.Reflection;
 using System.Globalization;
 
+#if CITRAY_CORE
+// So that it doesn't collide with other assemblies (see InternalsVisibleTo)
+[assembly: AssemblyVersion(ThisAssemblyCore.Version)]
+[assembly: AssemblyProduct(ThisAssemblyCore.Product)]
+[assembly: AssemblyCompany(ThisAssemblyCore.Company)]
+[assembly: AssemblyCopyright(ThisAssemblyCore.Copyright)]
+[assembly: AssemblyTrademark(ThisAssemblyCore.Trademark)]
+
+static partial class ThisAssemblyCore
+#else
+
 [assembly: AssemblyVersion(ThisAssembly.Version)]
 [assembly: AssemblyProduct(ThisAssembly.Product)]
 [assembly: AssemblyCompany(ThisAssembly.Company)]
@@ -9,6 +20,7 @@ using System.Globalization;
 [assembly: AssemblyTrademark(ThisAssembly.Trademark)]
 
 static partial class ThisAssembly
+#endif
 {
     public const string ProductVersion = "0.1.0";
     public const string Product = "CITray";

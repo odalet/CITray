@@ -1,17 +1,17 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly: AssemblyTitle(ThisAssembly.Title)]
-[assembly: AssemblyDescription(ThisAssembly.Description)]
-[assembly: AssemblyInformationalVersion(ThisAssembly.InformationalVersion)]
-[assembly: AssemblyFileVersion(ThisAssembly.FileVersion)]
+[assembly: AssemblyTitle(ThisAssemblyCore.Title)]
+[assembly: AssemblyDescription(ThisAssemblyCore.Description)]
+[assembly: AssemblyInformationalVersion(ThisAssemblyCore.InformationalVersion)]
+[assembly: AssemblyFileVersion(ThisAssemblyCore.FileVersion)]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: InternalsVisibleTo("CITray")]
 [assembly: InternalsVisibleTo("CITray.Api")]
 
-internal static partial class ThisAssembly
+internal static partial class ThisAssemblyCore
 {
     public const string InformationalVersion = thisVersion;
     public const string FileVersion = thisVersion;

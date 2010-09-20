@@ -11,8 +11,16 @@ namespace CITray.Hudson
     {
         private List<Project> projectList = null;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Server"/> class.
+        /// </summary>
         public Server() : this(string.Empty, null) { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Server"/> class.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        /// <param name="projects">The projects.</param>
         public Server(string uri, IEnumerable<Project> projects)
         {
             if (!string.IsNullOrEmpty(uri)) Uri = new Uri(uri);

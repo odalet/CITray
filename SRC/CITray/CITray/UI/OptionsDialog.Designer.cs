@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsDialog));
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.bottomLineControl = new CITray.UI.LineControl();
-            this.placeHolderPanel = new System.Windows.Forms.Panel();
             this.optionsTreeControl = new CITray.UI.OptionsTreeControl();
+            this.placeHolderPanel = new System.Windows.Forms.Panel();
+            this.bottomLineControl = new CITray.UI.LineControl();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -78,15 +79,13 @@
             this.splitContainer.SplitterDistance = 186;
             this.splitContainer.TabIndex = 0;
             // 
-            // bottomLineControl
+            // optionsTreeControl
             // 
-            this.bottomLineControl.Location = new System.Drawing.Point(12, 318);
-            this.bottomLineControl.Margin = new System.Windows.Forms.Padding(0);
-            this.bottomLineControl.Name = "bottomLineControl";
-            this.bottomLineControl.Size = new System.Drawing.Size(560, 6);
-            this.bottomLineControl.TabIndex = 1;
-            this.bottomLineControl.TabStop = false;
-            this.bottomLineControl.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(128)))), ((int)(((byte)(186)))));
+            this.optionsTreeControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.optionsTreeControl.Location = new System.Drawing.Point(0, 0);
+            this.optionsTreeControl.Name = "optionsTreeControl";
+            this.optionsTreeControl.Size = new System.Drawing.Size(186, 303);
+            this.optionsTreeControl.TabIndex = 0;
             // 
             // placeHolderPanel
             // 
@@ -98,13 +97,15 @@
             this.placeHolderPanel.Size = new System.Drawing.Size(370, 303);
             this.placeHolderPanel.TabIndex = 0;
             // 
-            // optionsTreeControl
+            // bottomLineControl
             // 
-            this.optionsTreeControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optionsTreeControl.Location = new System.Drawing.Point(0, 0);
-            this.optionsTreeControl.Name = "optionsTreeControl";
-            this.optionsTreeControl.Size = new System.Drawing.Size(186, 303);
-            this.optionsTreeControl.TabIndex = 0;
+            this.bottomLineControl.Location = new System.Drawing.Point(12, 318);
+            this.bottomLineControl.Margin = new System.Windows.Forms.Padding(0);
+            this.bottomLineControl.Name = "bottomLineControl";
+            this.bottomLineControl.Size = new System.Drawing.Size(560, 6);
+            this.bottomLineControl.TabIndex = 1;
+            this.bottomLineControl.TabStop = false;
+            this.bottomLineControl.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(128)))), ((int)(((byte)(186)))));
             // 
             // OptionsDialog
             // 
@@ -115,10 +116,12 @@
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OptionsDialog";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Options";
             this.splitContainer.Panel1.ResumeLayout(false);

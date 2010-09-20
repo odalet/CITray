@@ -40,6 +40,7 @@
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,9 +74,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeExplorer1 = new CITray.UI.TreeExplorer();
             this.mainView1 = new CITray.UI.MainView();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsManager = new CITray.Core.UI.UIActionsManager();
             this.exitAction = new CITray.Core.UI.UIAction();
+            this.optionsAction = new CITray.Core.UI.UIAction();
+            this.aboutAction = new CITray.Core.UI.UIAction();
             this.mstrip.SuspendLayout();
             this.tstrip.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -179,6 +181,13 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.actionsManager.SetAction(this.exitToolStripMenuItem, this.exitAction);
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -268,10 +277,10 @@
             // 
             // optionsToolStripMenuItem
             // 
+            this.actionsManager.SetAction(this.optionsToolStripMenuItem, this.optionsAction);
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -288,30 +297,31 @@
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // aboutToolStripMenuItem
             // 
+            this.actionsManager.SetAction(this.aboutToolStripMenuItem, this.aboutAction);
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // sstrip
@@ -457,23 +467,12 @@
             this.mainView1.Size = new System.Drawing.Size(486, 188);
             this.mainView1.TabIndex = 0;
             // 
-            // exitToolStripMenuItem
-            // 
-            this.actionsManager.SetAction(this.exitToolStripMenuItem, this.exitAction);
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeyDisplayString = "None";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            // 
             // actionsManager
             // 
             this.actionsManager.Actions.Add(this.exitAction);
+            this.actionsManager.Actions.Add(this.optionsAction);
+            this.actionsManager.Actions.Add(this.aboutAction);
             this.actionsManager.ContainerControl = this;
-            // 
-            // exitAction
-            // 
-            this.exitAction.Run += new System.EventHandler(this.exitAction_Run);
             // 
             // MainForm
             // 
@@ -484,6 +483,7 @@
             this.Controls.Add(this.tstrip);
             this.Controls.Add(this.sstrip);
             this.Controls.Add(this.mstrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mstrip;
             this.Name = "MainForm";
             this.Text = "CITray";
@@ -549,6 +549,8 @@
         private CITray.UI.MainView mainView1;
         private CITray.Core.UI.UIActionsManager actionsManager;
         private CITray.Core.UI.UIAction exitAction;
+        private CITray.Core.UI.UIAction optionsAction;
+        private CITray.Core.UI.UIAction aboutAction;
     }
 }
 

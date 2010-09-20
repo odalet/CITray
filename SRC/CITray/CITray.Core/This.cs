@@ -5,6 +5,8 @@ using CITray.Plugins;
 using System.Reflection;
 using System.Diagnostics;
 
+using ThisAssembly = ThisAssemblyCore;
+
 namespace CITray
 {
     /// <summary>

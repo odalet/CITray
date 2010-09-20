@@ -1,3 +1,4 @@
 Version 0.1.0
 * Olivier Dalet (http://odalet.wordpress.com/)
 * Marco De Sanctis' Actions:  http://blogs.ugidotnet.org/crad/articles/38329.aspx
+* Michael Potter's article about Single Process Instance Object: http://www.codeproject.com/KB/cs/cssingprocess.aspx

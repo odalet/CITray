@@ -15,6 +15,8 @@ internal static partial class ThisAssembly
     public const string Title = "CITray";
     public const string Description = "Main CITray assembly: the application";
 
+    public const string MainWindowTitle = Title + " " + thisVersion;
+
     /// <summary>
     /// Gets the build number for this assembly (or zero if it is not set).
     /// </summary>
