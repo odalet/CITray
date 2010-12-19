@@ -2,6 +2,9 @@
 
 namespace CITray.Plugins
 {
+    /// <summary>
+    /// A plugin descriptor is the internal representation of a plugin.
+    /// </summary>
     internal class PluginDescriptor
     {
         private string pluginDisplayName = string.Empty;

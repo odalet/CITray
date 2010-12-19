@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+
 using CITray.UI;
 using CITray.Controllers;
 
@@ -33,6 +34,8 @@ namespace CITray
             //            }
             //#endif
 
+            Action nop = () => { };
+
             InitializeSingleInstanceApplication(
                 icon =>
                 {
@@ -50,7 +53,7 @@ namespace CITray
                     // Run the windows application messages loop
                     Application.Run();
                 },
-                () => { });
+                nop);
         }
 
         /// <summary>

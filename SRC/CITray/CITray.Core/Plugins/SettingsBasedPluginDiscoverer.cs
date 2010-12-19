@@ -99,7 +99,7 @@ namespace CITray.Plugins
             if (types.Length == 0)
             {
                 // Nothing to discover in this assembly.
-                //TODO: log verbose info ab out this.
+                //TODO: log verbose info about this.
                 return;
             }
 
