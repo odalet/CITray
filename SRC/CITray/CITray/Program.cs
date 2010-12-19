@@ -6,6 +6,7 @@ using CITray.Controllers;
 
 namespace CITray
 {
+    // fake check-in: testing git push
     internal static class Program
     {
         private const string mutexName = "CITrayMutex";
