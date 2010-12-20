@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CITray.Api.UI;
 
-namespace CITray.UI
+namespace CITray.UI.Options
 {
-    internal partial class OptionsDialog : Form
+    internal partial class ProjectsPanel : BaseOptionsPanel
     {
-        public OptionsDialog()
+        public ProjectsPanel()
         {
             InitializeComponent();
-        }
-
-        private void Initialize()
-        {
-
         }
     }
 }

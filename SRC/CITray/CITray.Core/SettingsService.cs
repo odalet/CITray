@@ -85,7 +85,7 @@ namespace CITray
                 // embedded in the assembly's resource) 
                 Clear();
                 var xdoc = XDocument.Parse(
-                    Properties.Resources.defaultSettings, 
+                    CoreProperties.Resources.defaultSettings, 
                     LoadOptions.PreserveWhitespace);
                 FileHelper.CreateDirectoryIfNeeded(
                     Path.GetDirectoryName(fileName));

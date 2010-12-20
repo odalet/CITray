@@ -1,4 +1,4 @@
-﻿namespace CITray.UI
+﻿namespace CITray.UI.Options
 {
     partial class OptionsDialog
     {
@@ -32,9 +32,9 @@
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.optionsTreeControl = new CITray.UI.OptionsTreeControl();
             this.placeHolderPanel = new System.Windows.Forms.Panel();
             this.bottomLineControl = new CITray.UI.LineControl();
+            this.optionsTreeControl = new CITray.UI.Options.OptionsTreeControl();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -43,6 +43,7 @@
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.Location = new System.Drawing.Point(416, 327);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
@@ -53,6 +54,7 @@
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(497, 327);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
@@ -79,14 +81,6 @@
             this.splitContainer.SplitterDistance = 186;
             this.splitContainer.TabIndex = 0;
             // 
-            // optionsTreeControl
-            // 
-            this.optionsTreeControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optionsTreeControl.Location = new System.Drawing.Point(0, 0);
-            this.optionsTreeControl.Name = "optionsTreeControl";
-            this.optionsTreeControl.Size = new System.Drawing.Size(186, 303);
-            this.optionsTreeControl.TabIndex = 0;
-            // 
             // placeHolderPanel
             // 
             this.placeHolderPanel.BackColor = System.Drawing.Color.White;
@@ -99,6 +93,8 @@
             // 
             // bottomLineControl
             // 
+            this.bottomLineControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.bottomLineControl.Location = new System.Drawing.Point(12, 318);
             this.bottomLineControl.Margin = new System.Windows.Forms.Padding(0);
             this.bottomLineControl.Name = "bottomLineControl";
@@ -106,6 +102,14 @@
             this.bottomLineControl.TabIndex = 1;
             this.bottomLineControl.TabStop = false;
             this.bottomLineControl.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(128)))), ((int)(((byte)(186)))));
+            // 
+            // optionsTreeControl
+            // 
+            this.optionsTreeControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.optionsTreeControl.Location = new System.Drawing.Point(0, 0);
+            this.optionsTreeControl.Name = "optionsTreeControl";
+            this.optionsTreeControl.Size = new System.Drawing.Size(186, 303);
+            this.optionsTreeControl.TabIndex = 0;
             // 
             // OptionsDialog
             // 
@@ -136,7 +140,7 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.SplitContainer splitContainer;
-        private OptionsTreeControl optionsTreeControl;
+        private CITray.UI.Options.OptionsTreeControl optionsTreeControl;
         private CITray.UI.LineControl bottomLineControl;
         private System.Windows.Forms.Panel placeHolderPanel;
     }

@@ -53,7 +53,10 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\IApplicationController.cs" />
+    <Compile Include="Controllers\IOptionsController.cs" />
+    <Compile Include="Controllers\OptionsController.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,16 +76,23 @@
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\NativeWindowHelper.cs" />
-    <Compile Include="UI\OptionsDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\OptionsDialog.Designer.cs">
-      <DependentUpon>OptionsDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\OptionsTreeControl.cs">
+    <Compile Include="UI\Options\ErrorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\OptionsTreeControl.Designer.cs">
+    <Compile Include="UI\Options\ErrorPanel.Designer.cs">
+      <DependentUpon>ErrorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Options\OptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Options\OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Options\OptionsSectionSelectedEventArgs.cs" />
+    <Compile Include="UI\Options\OptionsTreeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Options\OptionsTreeControl.Designer.cs">
       <DependentUpon>OptionsTreeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -96,16 +106,28 @@
     <EmbeddedResource Include="UI\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\OptionsDialog.resx">
+    <EmbeddedResource Include="UI\Options\ErrorPanel.resx">
+      <DependentUpon>ErrorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Options\GeneralPanel.resx">
+      <DependentUpon>GeneralPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Options\OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\OptionsTreeControl.resx">
+    <EmbeddedResource Include="UI\Options\OptionsTreeControl.resx">
       <DependentUpon>OptionsTreeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Options\EmptyPanel.resx">
+      <DependentUpon>EmptyPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Options\ProjectsPanel.resx">
+      <DependentUpon>ProjectsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\TrayIcon.resx">
       <DependentUpon>TrayIcon.cs</DependentUpon>
@@ -126,6 +148,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\Options\EmptyPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Options\EmptyPanel.Designer.cs">
+      <DependentUpon>EmptyPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Options\GeneralPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Options\GeneralPanel.Designer.cs">
+      <DependentUpon>GeneralPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Options\OptionsSection.cs" />
+    <Compile Include="UI\Options\ProjectsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Options\ProjectsPanel.Designer.cs">
+      <DependentUpon>ProjectsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\TrayIcon.cs">
       <SubType>Component</SubType>
@@ -149,6 +190,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Black.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\CITray.Hudson\bin\Debug\CITray.Hudson.dll">
+      <Link>plugins\CITray.Hudson.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\CITray.Hudson\bin\Debug\CITray.Hudson.pdb">
+      <Link>plugins\CITray.Hudson.pdb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\CITray.MockPlugin\bin\Debug\CITray.MockPlugin.dll">
+      <Link>plugins\CITray.MockPlugin.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\CITray.MockPlugin\bin\Debug\CITray.MockPlugin.pdb">
+      <Link>plugins\CITray.MockPlugin.pdb</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

@@ -1,6 +1,6 @@
-﻿namespace CITray.UI
+﻿namespace CITray.UI.Options
 {
-    partial class OptionsTreeControl
+    partial class GeneralPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.optionsTree = new System.Windows.Forms.TreeView();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // optionsTree
+            // label1
             // 
-            this.optionsTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.optionsTree.Location = new System.Drawing.Point(0, 0);
-            this.optionsTree.Name = "optionsTree";
-            this.optionsTree.Size = new System.Drawing.Size(246, 391);
-            this.optionsTree.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "GENERAL";
             // 
-            // OptionsTreeControl
+            // GeneralPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.optionsTree);
-            this.Name = "OptionsTreeControl";
-            this.Size = new System.Drawing.Size(246, 391);
+            this.Controls.Add(this.label1);
+            this.Name = "GeneralPanel";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TreeView optionsTree;
+        private System.Windows.Forms.Label label1;
     }
 }

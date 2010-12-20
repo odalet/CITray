@@ -6,12 +6,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CITray.Api.UI;
 
-namespace CITray.Hudson.UI
+namespace CITray.UI.Options
 {
-    internal partial class AddServerControl : UserControl
+    public partial class EmptyPanel : BaseOptionsPanel
     {
-        public AddServerControl()
+        public EmptyPanel()
         {
             InitializeComponent();
         }

@@ -8,6 +8,11 @@ namespace CITray.Controllers
     internal interface IApplicationController
     {
         /// <summary>
+        /// Gets the application's main window instance.
+        /// </summary>
+        MainForm MainWindow { get; }
+
+        /// <summary>
         /// Exits the application.
         /// </summary>
         void ExitApplication();

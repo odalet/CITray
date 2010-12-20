@@ -5,17 +5,33 @@ using CITray.UI;
 
 namespace CITray.Controllers
 {
-    internal class ApplicationController : IApplicationController
+    internal class ApplicationController : BaseController, IApplicationController
     {
         private MainForm mainForm = null;
-        private IServiceProvider services = null;
 
-        public ApplicationController(IServiceProvider serviceProvider)
-        {
-            services = serviceProvider ?? This.Services;
-        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationController"/> class.
+        /// </summary>
+        /// <param name="serviceProvider">The service provider.</param>
+        public ApplicationController(IServiceProvider serviceProvider) : base(serviceProvider) { }
 
         #region IApplicationController Members
+
+        /// <summary>
+        /// Gets the application's main window instance.
+        /// </summary>
+        public MainForm MainWindow
+        {
+            get
+            {
+                if (mainForm == null)
+                {
+                    mainForm = new MainForm();
+                    mainForm.Initialize(base.Services);
+                }
+                return mainForm;
+            }
+        }
 
         public void ExitApplication()
         {
@@ -36,7 +52,7 @@ namespace CITray.Controllers
 
         public void ShowMainWindow()
         {
-            var form = GetMainForm();
+            var form = MainWindow;
             if (!form.Visible)
             {
                 form.Show();
@@ -46,13 +62,15 @@ namespace CITray.Controllers
 
         public void HideMainWindow()
         {
-            var form = GetMainForm();
+            var form = MainWindow;
             if (form.Visible) form.Hide();
         }
 
         public void ShowOptions()
         {
-            ShowDialog<OptionsDialog>();
+            var optionsService = base.GetService<IOptionsController>(true);     
+            using (var form = optionsService.GetOptionsDialog())
+                ShowDialog(form);
         }
 
         #endregion
@@ -69,24 +87,19 @@ namespace CITray.Controllers
             }
         }
 
-        private MainForm GetMainForm()
+        private DialogResult ShowDialog<T>() where T : Form, new()
         {
-            if (mainForm == null)
-            {
-                mainForm = new MainForm();
-                mainForm.Initialize(services);
-            }
-            return mainForm;
+            var form = new T();
+            return ShowDialog(form);
         }
 
-        private DialogResult ShowDialog<T>() where T : Form, new()
+        private DialogResult ShowDialog(Form form)
         {
             var owner = CurrentOwner;
 
-            var form = new T();
             form.ShowIcon = owner == null;
             form.ShowInTaskbar = owner == null;
-            form.StartPosition = owner == null ? 
+            form.StartPosition = owner == null ?
                 FormStartPosition.CenterScreen : FormStartPosition.CenterParent;
 
             return form.ShowDialog(owner);

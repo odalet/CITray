@@ -45,13 +45,19 @@ namespace CITray
                     // Add required application services
                     This.Services.AddService<IApplicationController>(
                         new ApplicationController(This.Services));
+                    This.Services.AddService<IOptionsController>(
+                        new OptionsController(This.Services));
                     
+#if DEBUG
+                    Application.Run(This.Services.GetService<IApplicationController>(true).MainWindow);
+#else
                     // Initialize the tray icon
                     icon.Initialize(This.Services);
                     icon.Visible = true;
 
                     // Run the windows application messages loop
                     Application.Run();
+#endif
                 },
                 nop);
         }

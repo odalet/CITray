@@ -35,6 +35,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
@@ -65,11 +66,27 @@
     <Compile Include="UI\AddServerControl.Designer.cs">
       <DependentUpon>AddServerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ProjectsListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ProjectsListControl.Designer.cs">
+      <DependentUpon>ProjectsListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectProjectsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SelectProjectsControl.Designer.cs">
+      <DependentUpon>SelectProjectsControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CITray.Api\CITray.Api.csproj">
       <Project>{387FF5F7-118C-4944-A986-C1CC47D6C7FB}</Project>
       <Name>CITray.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CITray.Core\CITray.Core.csproj">
+      <Project>{2653815E-AA35-4CEE-8067-5393A5B93EA9}</Project>
+      <Name>CITray.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddServerControl.resx">
       <DependentUpon>AddServerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProjectsListControl.resx">
+      <DependentUpon>ProjectsListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SelectProjectsControl.resx">
+      <DependentUpon>SelectProjectsControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

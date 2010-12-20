@@ -35,6 +35,7 @@ namespace CITray
             exitAction.Run += (s, e) => controller.ExitApplication();
             optionsAction.Run += (s, e) => controller.ShowOptions();
             aboutAction.Run += (s, e) => controller.AboutApplication();
+#if !DEBUG
             FormClosing += (s, e) =>
             {
                 if (e.CloseReason == CloseReason.UserClosing)
@@ -43,6 +44,7 @@ namespace CITray
                     e.Cancel = true; // don't close
                 }
             };
+#endif
         }       
     }
 }

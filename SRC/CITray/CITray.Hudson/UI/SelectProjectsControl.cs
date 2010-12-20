@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CITray.Hudson.UI
 {
-    internal partial class AddServerControl : UserControl
+    internal partial class SelectProjectsControl : UserControl
     {
-        public AddServerControl()
+        public SelectProjectsControl()
         {
             InitializeComponent();
         }

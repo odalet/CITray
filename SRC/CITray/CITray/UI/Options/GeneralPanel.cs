@@ -6,12 +6,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CITray.Api.UI;
 
-namespace CITray.UI
+namespace CITray.UI.Options
 {
-    internal partial class OptionsTreeControl : UserControl
+    internal partial class GeneralPanel : BaseOptionsPanel
     {
-        public OptionsTreeControl()
+        public GeneralPanel()
         {
             InitializeComponent();
         }
