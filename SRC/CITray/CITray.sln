@@ -19,8 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CITray.MockPlugin", "CITray
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{95664B32-7B42-4786-887B-B8D967A5051B}"
 	ProjectSection(SolutionItems) = preProject
-		..\Credits.txt = ..\Credits.txt
-		..\History.txt = ..\History.txt
+		..\Credits.md = ..\Credits.md
+		..\History.md = ..\History.md
 	EndProjectSection
 EndProject
 Global
