@@ -75,8 +75,15 @@ namespace CITray.UI
             }
         }
 
+        public static void RestoreWindow(IntPtr hwnd)
+        {
+            SendMessage(hwnd, WM_SYSCOMMAND, SC_RESTORE, 0);
+        }
+
         #region Interop definitions
 
+        private const int SC_RESTORE = 0xF120;
+        private const int WM_SYSCOMMAND = 0x112;
         private const int SW_RESTORE = 9;
         private delegate bool EnumThreadWindowsCallback(IntPtr hWnd, IntPtr lParam);
 
@@ -144,6 +151,9 @@ namespace CITray.UI
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowTextLength(IntPtr hWnd);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, Int32 wParam, Int32 lParam);
 
         #endregion
 

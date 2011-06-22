@@ -12,7 +12,7 @@ namespace CITray.Controllers
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationController"/> class.
         /// </summary>
-        /// <param name="serviceProvider">The service provider.</param>
+        /// <param name="serviceProvider">A service provider instance.</param>
         public ApplicationController(IServiceProvider serviceProvider) : base(serviceProvider) { }
 
         #region IApplicationController Members
@@ -33,6 +33,9 @@ namespace CITray.Controllers
             }
         }
 
+        /// <summary>
+        /// Exits the application.
+        /// </summary>
         public void ExitApplication()
         {
             if (mainForm != null)
@@ -45,11 +48,17 @@ namespace CITray.Controllers
             Application.Exit();
         }
 
+        /// <summary>
+        /// Shows the application About box.
+        /// </summary>
         public void AboutApplication()
         {
             ShowDialog<AboutBox>();
         }
 
+        /// <summary>
+        /// Shows the application's main window.
+        /// </summary>
         public void ShowMainWindow()
         {
             var form = MainWindow;
@@ -58,14 +67,23 @@ namespace CITray.Controllers
                 form.Show();
                 form.BringToFront();
             }
+            else if (form.WindowState == FormWindowState.Minimized)
+                NativeWindowHelper.RestoreWindow(form.Handle);
+
         }
 
+        /// <summary>
+        /// Hides the application's main window.
+        /// </summary>
         public void HideMainWindow()
         {
             var form = MainWindow;
             if (form.Visible) form.Hide();
         }
 
+        /// <summary>
+        /// Shows the options dialog.
+        /// </summary>
         public void ShowOptions()
         {
             var optionsService = base.GetService<IOptionsController>(true);     
@@ -89,8 +107,8 @@ namespace CITray.Controllers
 
         private DialogResult ShowDialog<T>() where T : Form, new()
         {
-            var form = new T();
-            return ShowDialog(form);
+            using (var form = new T())
+                return ShowDialog(form);
         }
 
         private DialogResult ShowDialog(Form form)
