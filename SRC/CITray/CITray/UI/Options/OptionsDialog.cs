@@ -4,11 +4,17 @@ using CITray.Controllers;
 
 namespace CITray.UI.Options
 {
+    /// <summary>
+    /// Options Dialog.
+    /// </summary>
     internal partial class OptionsDialog : Form
     {
         private IServiceProvider services = null;
         private IOptionsController controller = null;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptionsDialog"/> class.
+        /// </summary>
         public OptionsDialog()
         {
             InitializeComponent();
