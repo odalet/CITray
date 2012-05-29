@@ -20,3 +20,5 @@ LIB/log4net.xml
 git-push.cmd
 git-pull.cmd
 /scratch.txt
+/DOC/HelpFull
+/DOC/HelpApi
