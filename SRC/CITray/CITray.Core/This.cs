@@ -1,9 +1,9 @@
 ﻿using System;
-using System.ComponentModel.Design;
 using System.IO;
-using CITray.Plugins;
 using System.Reflection;
-using System.Diagnostics;
+using System.ComponentModel.Design;
+
+using CITray.Plugins;
 
 using ThisAssembly = ThisAssemblyCore;
 

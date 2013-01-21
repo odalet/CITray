@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
 using System.Reflection;
-using CITray.Api;
 using System.ComponentModel;
+using System.Collections.Generic;
+
+using CITray.Api;
 
 namespace CITray.Plugins
 {

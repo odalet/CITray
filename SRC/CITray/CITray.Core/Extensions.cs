@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace CITray
@@ -18,13 +17,6 @@ namespace CITray
         public static void Do<T>(this IEnumerable<T> sequence, Action<T> action)
         {
             foreach (var item in sequence) action(item);
-
-            // alternate Linqish implementation...
-            //var _ = sequence.Select(item =>
-            //{
-            //    action(item);
-            //    return 0;
-            //}).ToArray();            
         }
     }
 }

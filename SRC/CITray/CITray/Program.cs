@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Forms;
 
 using CITray.UI;
 using CITray.Controllers;
 
 namespace CITray
 {
-    // fake check-in: testing git push
     internal static class Program
     {
         private const string mutexName = "CITrayMutex";
@@ -36,30 +35,29 @@ namespace CITray
 
             Action nop = () => { };
 
-            InitializeSingleInstanceApplication(
-                icon =>
-                {
-                    // Initializes the core engine & adds core services
-                    This.Bootstrap();
+            InitializeSingleInstanceApplication(icon =>
+            {
+                // Initializes the core engine & adds core services
+                This.Bootstrap();
 
-                    // Add required application services
-                    This.Services.AddService<IApplicationController>(
-                        new ApplicationController(This.Services));
-                    This.Services.AddService<IOptionsController>(
-                        new OptionsController(This.Services));
-                    
+                // Add required application services
+                This.Services.AddService<IApplicationController>(
+                    new ApplicationController(This.Services));
+                This.Services.AddService<IOptionsController>(
+                    new OptionsController(This.Services));
+
 #if DEBUG
-                    Application.Run(This.Services.GetService<IApplicationController>(true).MainWindow);
+                Application.Run(This.Services.GetService<IApplicationController>(true).MainWindow);
 #else
-                    // Initialize the tray icon
-                    icon.Initialize(This.Services);
-                    icon.Visible = true;
+                // Initialize the tray icon
+                icon.Initialize(This.Services);
+                icon.Visible = true;
 
-                    // Run the windows application messages loop
-                    Application.Run();
+                // Run the windows application messages loop
+                Application.Run();
 #endif
-                },
-                nop);
+            },
+            nop);
         }
 
         /// <summary>
